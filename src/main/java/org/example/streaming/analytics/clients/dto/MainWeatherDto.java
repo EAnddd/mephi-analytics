@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Api response DTO
+ */
 @Data
 @Builder
 @NoArgsConstructor

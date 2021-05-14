@@ -6,8 +6,15 @@ import javax.inject.Singleton;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Aggregation class
+ */
 @Singleton
 public class ArggregationServiceImpl implements ArggregationService {
+    /**
+     * @param weatherDtoList List of weather information to get average.
+     * @return Average of weather information
+     */
     @Override
     public Optional<MainWeatherDto> aggregate(List<MainWeatherDto> weatherDtoList) {
         return weatherDtoList.stream()

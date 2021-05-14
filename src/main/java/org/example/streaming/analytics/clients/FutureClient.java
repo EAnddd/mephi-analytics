@@ -14,6 +14,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Client for connecting to weather open api
+ */
 @Singleton
 public class FutureClient {
 
@@ -24,6 +27,10 @@ public class FutureClient {
         this.httpClient = httpClient;
     }
 
+    /**
+     * @param token Access token from api.openweathermap.org
+     *              Method to initialize which cities to get data about
+     */
     public void createUris(String token) {
         for(CityNames city: CityNames.values()){
             this.uris.add(UriBuilder.of("/data/2.5/weather?q=" + city.name() + "&appid=" + token + "&units=metric")
@@ -31,6 +38,9 @@ public class FutureClient {
         }
     }
 
+    /**
+     * @return Method to get information about the cities initialized in createUris(String token) method
+     */
     public List<MainWeatherDto> getStatistics() {
         List<MainWeatherDto> results = new ArrayList<>();
         for(URI uri: uris) {

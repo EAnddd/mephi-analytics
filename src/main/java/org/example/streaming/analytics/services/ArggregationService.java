@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ArggregationService {
-    public Optional<MainWeatherDto> aggregate(List<MainWeatherDto> weatherDtoList);
+    Optional<MainWeatherDto> aggregate(List<MainWeatherDto> weatherDtoList);
 }
