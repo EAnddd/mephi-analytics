@@ -1,0 +1,6 @@
+kafka:
+  enabled: true
+micronaut:
+  server:
+    netty:
+      logLevel: INFO

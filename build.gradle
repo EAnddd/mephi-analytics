@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+ext {
+    lombokVersion = "1.18.8"
+}
+
+
+dependencies {
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor(platform("io.micronaut:micronaut-bom:2.5.1"))
+    annotationProcessor("io.micronaut:micronaut-inject-java")
+    annotationProcessor("io.micronaut:micronaut-validation")
+    testAnnotationProcessor(platform("io.micronaut:micronaut-bom:2.5.1"))
+    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
+    implementation(platform("io.micronaut:micronaut-bom:2.5.1"))
+    implementation("io.micronaut:micronaut-inject")
+    implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut:micronaut-runtime")
+    implementation("io.micronaut:micronaut-http-server-netty")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation 'io.micronaut.kafka:micronaut-kafka:3.3.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    testImplementation 'io.micronaut.test:micronaut-test-junit5:2.3.3'
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+}
+
+test {
+    useJUnitPlatform()
+}
